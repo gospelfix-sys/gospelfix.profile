@@ -164,6 +164,7 @@
 - [ ] 파일 업로드 (아바타 이미지, Supabase Storage 연동)
 - [ ] 비밀번호 재설정 플로우
 - [ ] Supabase CLI 마이그레이션 체계 도입
+- [ ] 공개 프로필 사이트 챗봇 UI -- `motion` 패키지 선설치 완료(`frontend/package.json`), 구현 시 `tailwindcss-animate`/`tw-animate-css`를 `motion`으로 교체·삭제 예정(`swiper`는 유지)
 
 ---
 
