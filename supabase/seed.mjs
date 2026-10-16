@@ -40,7 +40,7 @@ const BUSINESS_HOURS = [
   { day: 2, label: '화요일', open_time: '09:00', close_time: '22:30', is_closed: false },
   { day: 3, label: '수요일', open_time: '09:00', close_time: '22:30', is_closed: false },
   { day: 4, label: '목요일', open_time: '09:00', close_time: '22:30', is_closed: false },
-  { day: 5, label: '금요일', open_time: null, close_time: null, is_closed: true },
+  { day: 5, label: '금요일', open_time: '09:00', close_time: '22:30', is_closed: false },
   { day: 6, label: '토요일', open_time: '09:00', close_time: '14:00', is_closed: false },
   { day: 0, label: '일요일', open_time: null, close_time: null, is_closed: true },
 ];

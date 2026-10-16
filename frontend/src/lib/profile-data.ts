@@ -22,7 +22,7 @@ export const BUSINESS_HOURS: BusinessHourEntry[] = [
   { day: 2, label: '화요일', open: '09:00', close: '22:30' },
   { day: 3, label: '수요일', open: '09:00', close: '22:30' },
   { day: 4, label: '목요일', open: '09:00', close: '22:30' },
-  { day: 5, label: '금요일', open: null, close: null },
+  { day: 5, label: '금요일', open: '09:00', close: '22:30' },
   { day: 6, label: '토요일', open: '09:00', close: '14:00' },
   { day: 0, label: '일요일', open: null, close: null },
 ]
