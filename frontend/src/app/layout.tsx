@@ -7,7 +7,7 @@ import '@/styles/profile.css'
 import { Toaster } from '@/components/ui/sonner'
 import { SITE_URL } from '@/lib/site-config'
 
-const OG_IMAGE_URL = `${SITE_URL}/images/gospelfix.jpg`
+const OG_IMAGE_URL = `${SITE_URL}/images/profile.jpg`
 const TITLE = '소윤호 | GospelFix 대표 - AI AGENT 자동화 솔루션'
 const DESCRIPTION =
   '소윤호 - GospelFix(가스펄픽스) 대표. 당신의 비즈니스를 위한 차세대 AI AGENT 자동화 솔루션'
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     locale: 'ko_KR',
-    images: [{ url: OG_IMAGE_URL, width: 1200, height: 630, alt: TITLE }],
+    images: [{ url: OG_IMAGE_URL, width: 1600, height: 800, alt: TITLE }],
   },
   twitter: {
     card: 'summary_large_image',
