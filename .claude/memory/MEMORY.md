@@ -1,7 +1,7 @@
 - [UI 버전 실험은 파일 복제 대신 컴포넌트+mode prop으로](feedback_ui-variant-as-component.md) — template_a/b 파일 분리를 사용자가 명시적으로 교정함
 - [히어로 컴포넌트(HeroModule) 현재 상태](project_hero-component-state.md) — mode: classic/gradient, 라이브 기본값 gradient, 콘텐츠·URL 변경 이력 (body::before 삭제로 일부 정정됨)
 - [백업 스냅샷 파일(index_2.html) 삭제됨](project_backup-snapshot-files-excluded.md) — 2026-09-15 사용자 요청으로 완전 삭제, 더 이상 존재하지 않음
-- [.claude/는 gitignore 아닌 untracked + 이 저장소는 구 정적 사이트의 재작성본](project_claude-dir-gitignored.md) — 삭제 시 git 복구 불가, "다른 프로젝트" 아님(같은 계보)
+- [.claude/는 gitignore 아닌 untracked(단, memory/는 2026-10-16부터 예외) + 이 저장소는 구 정적 사이트의 재작성본](project_claude-dir-gitignored.md) — 삭제 시 git 복구 불가, "다른 프로젝트" 아님(같은 계보)
 - [스킬 10개 정리됨(2026-10-08)](project_skills-pruned-2026-10-08.md) — 애니메이션/디자인/중복 커밋 스킬 삭제, gfix-*/ask-sonner/code-review/commit 8개만 유지
 - [로컬 이미지 처리 도구: Pillow만 있음](project_local-image-tooling.md) — ImageMagick/pngquant/optipng 없음, PNG 손실압축 필요시 설치 승인부터 받을 것
 - [assets/images/Frame 64.png 처리 보류 중](project_frame64-png-pending.md) — 오래된 untracked 파일, 용도/처리방침 미확인, 다음에 물어볼 것
@@ -20,3 +20,4 @@
 - [⚠️ .claude/agents/*.md에 옛 경로 하드코딩, agent-memory 깨짐](project_stale-agent-paths-todo.md) — GospelFix/+service/service.supabase.v2 → profile로 치환 필요
 - [미사용 의존성 선설치는 code-reviewer가 BLOCKED, 근거 문서화하면 APPROVED](feedback_dependency-needs-justification.md) — motion 패키지 사례로 확인됨
 - [motion 패키지 설치됨, 챗봇 UI 구현 때 tailwindcss-animate/tw-animate-css 대체 예정](project_motion-chatbot-plan.md) — swiper는 유지, docs/ROADMAP.md에도 기록
+- [메모리 운영: 글로벌이 유일한 자동 로드 소스, .claude/memory/는 git 공유용 수동 사본](project_memory-dual-storage.md) — 새 메모리 저장 시 양쪽 다 갱신할 것
