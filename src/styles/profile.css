@@ -712,27 +712,23 @@ body {
 
 /* Ministry Card */
 .ministry-card-link {
-  display: block;
+  display: flex;
+  flex-direction: column;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  text-decoration: none;
+  border-radius: 20px;
   color: inherit;
   overflow: hidden;
   transition: all 0.2s ease;
   height: 100%;
-  box-shadow: 0 2px 8px rgba(20, 21, 26, 0.04);
-}
-
-.ministry-card-link:active {
-  transform: scale(0.98);
+  box-shadow: 0 2px 12px rgba(20, 21, 26, 0.06);
 }
 
 .ministry-card-image {
+  display: flex;
   position: relative;
   background: var(--color-chip-bg);
   height: 140px;
-  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -758,36 +754,31 @@ body {
   transition: transform 0.3s ease;
 }
 
-.ministry-card-link:hover .ministry-card-image.has-image img {
-  transform: scale(1.05);
-}
-
 /* 운영 종료 카드(unavailable:true) — 흐릿하게 처리해 더 이상 접속 가능한 링크가 아님을 미리 알린다 */
 .ministry-card-link--unavailable {
   opacity: 0.55;
-  cursor: default;
-}
-
-.ministry-card-link--unavailable:hover .ministry-card-image.has-image img {
-  transform: none;
 }
 
 .ministry-card-content {
-  padding: 16px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px 16px 16px;
 }
 
 .ministry-card-subtitle {
   font-size: 12px;
   color: var(--color-text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .ministry-card-title {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 6px;
-  line-height: 1.4;
+  margin-bottom: 8px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
 }
 
 .ministry-card-title .highlight {
@@ -795,7 +786,7 @@ body {
 }
 
 .ministry-card-date {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--color-text-secondary);
   margin-bottom: 6px;
   font-weight: 500;
@@ -803,14 +794,46 @@ body {
 
 .ministry-card-info {
   font-size: 12px;
+  line-height: 1.5;
   color: var(--color-text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.ministry-card-tags {
+/* 하단 버튼 2개 — 카드 높이가 달라도 항상 바닥에 붙도록 margin-top:auto */
+.ministry-card-actions {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.ministry-card-btn {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.ministry-card-btn:active {
+  transform: scale(0.96);
+}
+
+.ministry-card-btn--primary {
+  background: var(--color-text);
+  color: var(--color-surface);
+}
+
+.ministry-card-btn--outline {
+  background: transparent;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-secondary);
 }
 
 .tag {
@@ -832,11 +855,31 @@ body {
   color: var(--color-text-secondary);
 }
 
-@media (hover: hover) {
-  .ministry-card-link:hover {
-    border-color: var(--color-border-strong);
-    transform: translateY(-2px);
-  }
+/* Mockup Gallery — .qr-sheet 바텀시트 위에 얹는 이미지 스와이퍼 */
+.mockup-gallery {
+  padding-bottom: var(--space-8, 32px);
+}
+
+.mockup-gallery-swiper {
+  padding-bottom: 28px;
+}
+
+.mockup-gallery-swiper img {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--color-chip-bg);
+}
+
+.mockup-gallery-swiper .swiper-pagination-bullet {
+  background: var(--color-border-strong);
+  opacity: 1;
+}
+
+.mockup-gallery-swiper .swiper-pagination-bullet-active {
+  background: var(--color-text);
 }
 
 /* Floating Actions — 하단 고정 wrapper (공유 버튼 + QR 버튼), 배치(position:fixed)는
