@@ -171,11 +171,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .qr-sheet-backdrop,
-  .qr-sheet {
-    transition: none;
-  }
-
   .hero-hours-chevron,
   .hero-hours-panel {
     transition: none;
@@ -860,6 +855,13 @@ body {
   padding-bottom: var(--space-8, 32px);
 }
 
+.mockup-gallery-buy-btn {
+  display: block;
+  margin-top: var(--space-4);
+  text-align: center;
+  text-decoration: none;
+}
+
 .mockup-gallery-swiper {
   padding-bottom: 28px;
 }
@@ -868,7 +870,7 @@ body {
   display: block;
   width: 100%;
   max-height: 60vh;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 12px;
   background: var(--color-chip-bg);
 }
@@ -1002,43 +1004,26 @@ body {
   position: fixed;
   inset: 0;
   z-index: 1001;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.qr-sheet-root.is-open {
-  visibility: visible;
-  pointer-events: auto;
 }
 
 .qr-sheet-backdrop {
   position: absolute;
   inset: 0;
   background: rgba(20, 21, 26, 0.45);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.qr-sheet-root.is-open .qr-sheet-backdrop {
-  opacity: 1;
 }
 
 .qr-sheet {
   position: absolute;
-  left: 50%;
+  left: 0;
+  right: 0;
   bottom: 0;
-  transform: translate(-50%, 100%);
+  margin-inline: auto;
   width: 100%;
-  max-width: min(100vw, 480px);
+  max-width: min(100vw, 572px);
   background: var(--color-surface);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   padding: var(--space-4) var(--space-6) var(--space-6);
   box-shadow: 0 -8px 32px rgba(20, 21, 26, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.qr-sheet-root.is-open .qr-sheet {
-  transform: translate(-50%, 0);
 }
 
 .qr-sheet-handle {

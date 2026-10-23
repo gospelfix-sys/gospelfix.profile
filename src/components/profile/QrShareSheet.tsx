@@ -6,6 +6,7 @@ import { QrCode, X } from 'lucide-react'
 import QRCode from 'qrcode'
 import { toast } from 'sonner'
 import { SITE_URL } from '@/lib/site-config'
+import { useSheetMotion } from '@/hooks/useSheetMotion'
 
 // 기존 qr.js 포팅. shadcn의 사전 스타일링된 DialogContent(가운데 모달용 Tailwind 클래스가
 // 하드코딩됨) 대신 @base-ui/react/dialog 프리미티브를 직접 사용한다 — 포털/포커스트랩/ESC
@@ -14,6 +15,7 @@ import { SITE_URL } from '@/lib/site-config'
 export default function QrShareSheet() {
   const [open, setOpen] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const { actionsRef, onOpenChange, backdropRender, popupRender } = useSheetMotion(open, setOpen)
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null)
 
   // Portal 기본 타깃은 document.body인데, profile.css의 CSS 변수(--color-surface,
@@ -51,7 +53,7 @@ export default function QrShareSheet() {
   }
 
   return (
-    <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
+    <DialogPrimitive.Root open={open} onOpenChange={onOpenChange} actionsRef={actionsRef}>
       <DialogPrimitive.Trigger
         className="qr-trigger-button"
         aria-label="QR코드로 프로필 공유하기"
@@ -59,13 +61,11 @@ export default function QrShareSheet() {
         <QrCode aria-hidden focusable={false} />
       </DialogPrimitive.Trigger>
       <DialogPrimitive.Portal container={portalContainer}>
-        {/* qr.js가 런타임에 만들던 .qr-sheet-root 래퍼 — 딤 배경/슬라이드업 트랜지션이
-            전부 `.qr-sheet-root.is-open` 상위 선택자에 걸려 있어, 이 래퍼 없이는 시트가
-            항상 `translate(-50%, 100%)`(화면 밖)에 고정되고 거기로 포커스가 이동하면서
-            브라우저가 페이지 맨 아래로 스크롤해버린다. */}
-        <div className={`qr-sheet-root${open ? ' is-open' : ''}`}>
-          <DialogPrimitive.Backdrop className="qr-sheet-backdrop" />
-          <DialogPrimitive.Popup className="qr-sheet" aria-labelledby="qrSheetTitle">
+        {/* .qr-sheet-root는 딤 배경과 시트를 화면 전체에 고정하는 래퍼. 슬라이드업/페이드는
+            useSheetMotion(motion)이 담당한다. */}
+        <div className="qr-sheet-root">
+          <DialogPrimitive.Backdrop className="qr-sheet-backdrop" render={backdropRender} />
+          <DialogPrimitive.Popup className="qr-sheet" aria-labelledby="qrSheetTitle" render={popupRender}>
             <div className="qr-sheet-handle" />
             <div className="qr-sheet-header">
               <DialogPrimitive.Title className="qr-sheet-title" id="qrSheetTitle">
