@@ -9,7 +9,7 @@ import MinistryCarousel from '@/components/profile/MinistryCarousel'
 import Footer from '@/components/profile/Footer'
 import FloatingActions from '@/components/profile/FloatingActions'
 
-export default function HomePage() {
+export default function ProfilePage() {
   return (
     <div className="gf-profile-page">
       <div className="container">
