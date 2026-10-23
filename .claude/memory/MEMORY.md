@@ -3,7 +3,7 @@
 - [백업 스냅샷 파일(index_2.html) 삭제됨](project_backup-snapshot-files-excluded.md) — 2026-09-15 사용자 요청으로 완전 삭제, 더 이상 존재하지 않음
 - [.claude/는 gitignore 아닌 untracked(단, memory/는 2026-10-16부터 예외) + 이 저장소는 구 정적 사이트의 재작성본](project_claude-dir-gitignored.md) — 삭제 시 git 복구 불가, "다른 프로젝트" 아님(같은 계보)
 - [스킬 10개 정리됨(2026-10-08)](project_skills-pruned-2026-10-08.md) — 애니메이션/디자인/중복 커밋 스킬 삭제, gfix-*/ask-sonner/code-review/commit 8개만 유지
-- [로컬 이미지 처리 도구: Pillow만 있음](project_local-image-tooling.md) — ImageMagick/pngquant/optipng 없음, PNG 손실압축 필요시 설치 승인부터 받을 것
+- [로컬 이미지 처리 도구: Pillow + ffmpeg(AVIF)](project_local-image-tooling.md) — ImageMagick/pngquant 없음, PNG→AVIF는 ffmpeg libsvtav1로 설치 없이 가능(2026-10-23)
 - [assets/images/Frame 64.png 처리 보류 중](project_frame64-png-pending.md) — 오래된 untracked 파일, 용도/처리방침 미확인, 다음에 물어볼 것
 - [아이콘/파비콘 생성은 표준 풀세트+HTML 연결 기본값](feedback_icon-generation-full-set.md) — appIcon.png 작업에서 추천 옵션 그대로 승인됨
 - [카드 순서=JSON 배열 순서, 정렬 기준 추측 금지](feedback_card-order-is-array-order.md) — "우선순위" 요청 시 결과 순서를 직접 확인할 것
@@ -11,11 +11,11 @@
 - [홀리윈 2026 사역 카드 출처](project_holywin-2026-card.md) — 강청 청년부 전도 대상자 기도 페이지, date 필드는 사용자 제공값(페이지엔 없음), 이미지 경로는 .avif로 정정됨
 - [고품격대패 포트폴리오 카드 출처](project_gopoomgyeok-card.md) — 퓨니코드 도메인 WebFetch로 확인, 포트폴리오/사역 카드 이미지 전체 avif 전환 이력도 함께 기록
 - [디자인 토큰 리팩터링 시 시각적 결과 보존이 기본값](feedback_preserve-visual-on-token-refactors.md) — shadcn 아이덴티티 도입 시 radius/그림자 모두 "현재 유지" 선택함
-- [macOS 대소문자 무시 FS + git core.ignorecase 함정](project_case-insensitive-fs-git-gotcha.md) — mv/git mv 실패, rename 미인식 등 3가지 실제 사고와 우회법
+- [macOS 대소문자 무시 FS + git core.ignorecase 함정](project_case-insensitive-fs-git-gotcha.md) — mv/git mv 실패, rename 미인식, 한글 파일명 NFD 불일치 등 4가지 사고와 우회법
 - [QR·공유·OG URL은 SITE_URL 상수로 고정, 현재 gospelfix.com 미연결](project_share-url-hardcoded.md) — vercel.app 임시 지정 중, 도메인 연결 시 되돌릴 것
 - [Supabase 관련 파일은 supabase/ 폴더에](feedback_supabase-folder-convention.md) — schema.sql/seed.mjs, docs/에 섞지 말 것
 - [파일이 세션 중 예고 없이 사라지는 현상 반복됨](project_files-vanish-mid-session.md) — 실수/의도 둘 다 있었음, 추측 말고 매번 물어볼 것
-- [git-commit-pusher 에이전트가 이 환경에서 Bash 접근 불가](reference_git-commit-pusher-no-bash.md) — 위임하지 말고 코디네이터가 직접 git 명령 실행
+- [git-commit-pusher 에이전트가 이 환경에서 Bash 접근 불가](reference_git-commit-pusher-no-bash.md) — 위임하지 말고 코디네이터가 직접 git 명령 실행 (2026-10-23 재확인)
 - [대시보드(Supabase/Vercel) 경로 안내는 "또는" 헤징 금지](feedback_dashboard-nav-precise-path.md) — 스크린샷의 실제 라벨로 단일 경로만 안내
 - [⚠️ .claude/agents/*.md에 옛 경로 하드코딩, agent-memory 깨짐](project_stale-agent-paths-todo.md) — GospelFix/+service/service.supabase.v2 → profile로 치환 필요
 - [미사용 의존성 선설치는 code-reviewer가 BLOCKED, 근거 문서화하면 APPROVED](feedback_dependency-needs-justification.md) — motion 패키지 사례로 확인됨
