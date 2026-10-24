@@ -25,3 +25,13 @@ metadata:
 - 커밋 `0e5cc72`(2026-09-14)로 push 완료, GitHub Pages 자동 배포됨
 
 **How to apply:** 히어로 관련 추가 요청이 오면 `assets/js/hero.js`의 `HERO_DATA`(콘텐츠)와 `TEMPLATES.gradient`/`TEMPLATES.classic`(마크업)을 먼저 확인한다. mode를 바꾸고 싶다는 요청이면 `index.html`의 `data-mode` 한 글자만 바꾸면 된다. 리뷰에서 남은 미해결 개선점(우선순위 낮음): (1) 히어로의 이메일 confirm 로직이 index.html 연락처 섹션의 것과 중복 구현되어 있어 이메일 주소를 바꿀 때 두 곳 다 고쳐야 함, (2) 히스토리 없이 직접 진입한 사용자에게는 뒤로가기 버튼이 무반응.
+
+---
+**⚠️ 2026-10-24 정정 — 위 본문은 구 정적 사이트(hero.js/index.html) 기준이라 낡았다.** 지금 히어로는 Next.js의 `src/components/profile/ProfileHero.tsx`(mode prop: classic/gradient, 라이브는 `profile/page.tsx`의 `mode="gradient"`)이고, 콘텐츠는 `src/lib/profile-data.ts`의 `SITE_PROFILE`(Phase 2에서 Supabase로 교체 예정, 시드는 `supabase/seed.mjs`에 동일 값이 하드코딩 → 둘을 항상 같이 고칠 것)이다.
+
+**2026-10-24 리브랜딩 (포지셔닝이 'AI 챗봇 예약' → '소상공인 가게 브랜딩~문의 응대 패키지'로 이동):**
+- 태그(칩 2개): `🧑‍💻 CI로고 · 홈페이지 · 쇼핑몰 · AI 챗봇` / `🚀 SNS 광고소재 제작 · 문의 알림 · 접속 통계` — 사용자가 준 2줄 문구를 줄 단위로 칩 1개씩 묶음. 처음엔 쇼핑몰을 뺐다가 사용자가 "왜 없어?"라고 되물어 첫 칩에 다시 넣음 → 키워드 '수정'은 통째 교체가 아니라 기존 항목 유지 여부를 확인해야 함.
+- `roleLines` 2번째 줄: `가게의 브랜딩부터 문의 응대까지` (사용자 제공 문구).
+- 하단 캐치프레이즈(`profile/page.tsx`): '심플함 속에 강력함을…' → `로고 한 장에서 문의 응대까지 우리 가게의 브랜드를 'AI'로 완성합니다.` (브랜딩 관점으로 사용자 요청, 대시 '—'는 사용자가 삭제 요청).
+- 소셜 섹션에서 카카오 채널(pf.kakao.com/_CqKlX) 항목 삭제 — 의도적 삭제.
+- 홈페이지 주소 `https://gospelfix-ashy.vercel.app/layer`로 변경. 링크는 `profile.homepageUrl`이지만 `SocialSection.tsx`의 표시 문구는 별도 하드코딩이라 둘 다 고쳐야 함.

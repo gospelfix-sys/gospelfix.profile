@@ -19,3 +19,8 @@ metadata:
 사용자 선택에 따라 `SITE_URL`을 `https://profile-eta-red.vercel.app`로 **임시 변경**해둔 상태(커밋 `2b568ed`). code-reviewer가 "나중에 `NEXT_PUBLIC_SITE_URL` 환경변수로 분리하면 도메인 연결 시 재배포 없이 전환 가능"이라고 제안했으나 이번 핫픽스 범위에서는 보류함.
 
 **How to apply:** gospelfix.com 도메인을 Vercel 프로젝트에 실제로 연결하면(Vercel Settings → Domains) `site-config.ts`의 `SITE_URL`을 다시 `https://gospelfix.com`으로 되돌려야 한다 — 되돌리는 걸 잊으면 영원히 vercel.app 주소로 공유/QR/OG가 나간다. 반대로 배포 주소(vercel.app 프로젝트명 등)가 바뀌는 경우에도 이 한 곳만 고치면 된다(구 정적 사이트 시절과 달리 지금은 단일 상수라 여러 파일을 동기화할 필요 없음).
+
+---
+**⚠️ 2026-10-24 — 현재 배포 주소 불명 + 미커밋 SITE_URL 변경이 위험:** 사용자가 `SITE_URL`을 `https://gospelfix-ashy.vercel.app`로 바꿔달라고 해 작업 트리에 반영했으나(미커밋), curl 확인 결과 그 도메인 루트는 **'모다(MODA)'라는 다른 사이트**(og:url=gospelfix.vercel.app)이고 `/images/profile.jpg`도 404 → 그대로 푸시하면 공유/QR이 MODA로 가고 og:image가 깨진다. 기존 값 `profile-eta-red.vercel.app`도 같은 날 루트·이미지 모두 404라 이 프로필 사이트의 실제 Production 도메인은 확인되지 않았다. `homepageUrl`(`gospelfix-ashy.vercel.app/layer`, 홈페이지 링크)과 `SITE_URL`(이 프로필 자신의 주소)은 서로 다른 개념이니 같은 도메인이라고 가정하지 말 것.
+
+**How to apply:** `site-config.ts`가 `gospelfix-ashy`로 바뀐 채 커밋되려 하면 막고, Vercel 대시보드(이 저장소 프로젝트의 Production 도메인)를 사용자에게 확인받은 뒤 그 값으로 설정한다. 사용자의 선택(site-config 제외 4파일 먼저 커밋 vs 도메인 확인 후 5파일 커밋)은 이 메모 작성 시점에 미응답. 위 본문의 `frontend/` 경로는 모노레포 시절 표기이며 지금은 `src/...`.

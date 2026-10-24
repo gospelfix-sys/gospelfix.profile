@@ -1,5 +1,5 @@
 - [UI 버전 실험은 파일 복제 대신 컴포넌트+mode prop으로](feedback_ui-variant-as-component.md) — template_a/b 파일 분리를 사용자가 명시적으로 교정함
-- [히어로 컴포넌트(HeroModule) 현재 상태](project_hero-component-state.md) — mode: classic/gradient, 라이브 기본값 gradient, 콘텐츠·URL 변경 이력 (body::before 삭제로 일부 정정됨)
+- [히어로 컴포넌트 현재 상태](project_hero-component-state.md) — mode: classic/gradient, 2026-10-24 리브랜딩(태그·캐치프레이즈·카카오 삭제·홈페이지 주소) 이력, 본문 상단은 구 정적 사이트 기준
 - [백업 스냅샷 파일(index_2.html) 삭제됨](project_backup-snapshot-files-excluded.md) — 2026-09-15 사용자 요청으로 완전 삭제, 더 이상 존재하지 않음
 - [.claude/는 gitignore 아닌 untracked(단, memory/는 2026-10-16부터 예외) + 이 저장소는 구 정적 사이트의 재작성본](project_claude-dir-gitignored.md) — 삭제 시 git 복구 불가, "다른 프로젝트" 아님(같은 계보)
 - [스킬 10개 정리됨(2026-10-08)](project_skills-pruned-2026-10-08.md) — 애니메이션/디자인/중복 커밋 스킬 삭제, gfix-*/ask-sonner/code-review/commit 8개만 유지
@@ -12,7 +12,7 @@
 - [고품격대패 포트폴리오 카드 출처](project_gopoomgyeok-card.md) — 퓨니코드 도메인 WebFetch로 확인, 포트폴리오/사역 카드 이미지 전체 avif 전환 이력도 함께 기록
 - [디자인 토큰 리팩터링 시 시각적 결과 보존이 기본값](feedback_preserve-visual-on-token-refactors.md) — shadcn 아이덴티티 도입 시 radius/그림자 모두 "현재 유지" 선택함
 - [macOS 대소문자 무시 FS + git core.ignorecase 함정](project_case-insensitive-fs-git-gotcha.md) — mv/git mv 실패, rename 미인식, 한글 파일명 NFD 불일치 등 4가지 사고와 우회법
-- [QR·공유·OG URL은 SITE_URL 상수로 고정, 현재 gospelfix.com 미연결](project_share-url-hardcoded.md) — vercel.app 임시 지정 중, 도메인 연결 시 되돌릴 것
+- [QR·공유·OG URL은 SITE_URL 상수로 고정](project_share-url-hardcoded.md) — ⚠️ 2026-10-24: gospelfix-ashy는 MODA 사이트, 실제 프로필 배포 도메인 미확인, 미커밋 변경 주의
 - [Supabase 관련 파일은 supabase/ 폴더에](feedback_supabase-folder-convention.md) — schema.sql/seed.mjs, docs/에 섞지 말 것
 - [파일이 세션 중 예고 없이 사라지는 현상 반복됨](project_files-vanish-mid-session.md) — 실수/의도 둘 다 있었음, 추측 말고 매번 물어볼 것
 - [git-commit-pusher 에이전트가 이 환경에서 Bash 접근 불가](reference_git-commit-pusher-no-bash.md) — 위임하지 말고 코디네이터가 직접 git 명령 실행 (2026-10-23 재확인)
