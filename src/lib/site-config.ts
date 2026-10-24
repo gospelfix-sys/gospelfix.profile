@@ -3,4 +3,4 @@
 // (기존 정적 사이트의 app.js shareData.url / qr.js PROFILE_URL과 동일한 설계 의도)
 // gospelfix.com은 아직 이 Vercel 프로젝트에 연결되지 않고 별개의 기존 사이트를 가리키고 있어
 // og:image 등이 404로 깨짐(2026-10-16 확인) — 도메인 연결 전까지 실제 배포 주소로 임시 지정.
-export const SITE_URL = 'https://gospelfix-ashy.vercel.app'
+export const SITE_URL = 'https://profile-eta-red.vercel.app'
