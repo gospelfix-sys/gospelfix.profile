@@ -19,7 +19,7 @@ export default function ProfilePage() {
         <SocialSection profile={SITE_PROFILE} />
 
         <p className="catchphrase">
-          심플함 속에 강력함을 담다 — 이제 &apos;AI 자동화&apos;로 도약할 시간입니다.
+          로고 한 장에서 문의 응대까지 우리 가게의 브랜드를 &apos;AI&apos;로 완성합니다.
         </p>
 
         <PortfolioCarousel cards={PORTFOLIO_CARDS} />

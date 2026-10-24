@@ -9,12 +9,12 @@ export const SITE_PROFILE: SiteProfile = {
   subtitle: 'GospelFix 대표 · AI Agent 자동화 솔루션',
   company: 'GospelFix',
   companyEn: 'AI AGENT AUTOMATION',
-  roleLines: ['가스펄픽스(GospelFix) 대표'],
-  tags: ['AI 챗봇 예약 시스템', '1:1 문의', '온라인 서비스', '홈페이지', '쇼핑몰'],
+  roleLines: ['가스펄픽스(GospelFix) 대표', '가게의 브랜딩부터 문의 응대까지'],
+  tags: ['🧑‍💻 CI로고 · 홈페이지 · 쇼핑몰 · AI 챗봇', '🚀 SNS 광고소재 제작 · 문의 알림 · 접속 통계'],
   email: 'thdbsgh3443@kakao.com',
   phone: '010-3388-2024',
   phoneHref: 'tel:010-3388-2024',
-  homepageUrl: 'https://gospelfix.vercel.app/layer',
+  homepageUrl: 'https://gospelfix-ashy.vercel.app/layer',
 }
 
 export const BUSINESS_HOURS: BusinessHourEntry[] = [
