@@ -49,9 +49,19 @@ npx tsc --noEmit  # 타입체크 (strict)
 
 구현 전 "GFix Craft 결정 사다리"를 따른다: 지금 꼭 필요한가 → 이미 `src/lib`·`hooks`·`store`에 있나 → Next.js 내장 → Supabase(Auth/RLS/Storage) → 설치된 패키지 → 기존 `lib/axios/`·`lib/supabase/` 패턴 → 10줄 인라인 → 최소 구현. 추상화는 세 번째 반복에서만 추출하고, `any`는 쓰지 않으며, 에러는 삼키지 않는다. 새 의존성(`yarn add`)은 근거를 문서화해야 한다. 설치된 패키지 목록은 `docs/TECH-STACK-PRIORITY.md` 참고. UI 버전 실험은 파일 복제가 아니라 컴포넌트 + `mode` prop으로 한다 (예: `ProfileHero`).
 
+## 상세 규칙 (`.claude/rules/`)
+
+해당 작업을 하기 전에 필요한 문서를 열어 읽는다 (자동 로드하지 않는 일반 링크다). 이 파일의 내용과 어긋나면 `CLAUDE.md`가 우선한다.
+
+- [`.claude/rules/component-layers.md`](.claude/rules/component-layers.md) — 새 컴포넌트를 shared/widgets/features/pages 중 어디에 둘지 판단하는 틀
+- [`.claude/rules/shared-component-changes.md`](.claude/rules/shared-component-changes.md) — 공용 컴포넌트·스타일은 호출부가 아니라 정의 파일을 고친다
+- [`.claude/rules/code-conventions.md`](.claude/rules/code-conventions.md) — 코드 컨벤션 상세. **이 저장소와 맞지 않는 부분이 있다** (아래 stale 목록 참고)
+
 ## 알려진 불일치 (stale)
 
 저장소가 모노레포에서 단일 앱으로 바뀐 뒤 아직 정리되지 않은 곳들이다. 이 내용을 사실로 믿고 따르지 말 것.
+
+- `.claude/rules/code-conventions.md`는 `cms.api` BFF(`cmsApiFetch`, `src/app/api/*/route.ts`) 구조의 다른 프로젝트 기준으로 쓰여 있다. 특히 "Supabase를 직접 호출하지 않는다"는 이 저장소와 반대이므로 따르지 말고, 포맷·네이밍 같은 범용 항목만 참고한다. `.claude/rules/` 문서가 가리키는 `.claude/agents/component-writer.md`, `.claude/memory/feedback_shared_component_single_source_of_truth.md`, `.prettierrc`도 존재하지 않는다. `.claude/`는 gitignore 대상이라 이 링크는 다른 클론에서 깨진다.
 
 - `.husky/pre-commit`은 `frontend/`·`admin/` 변경 시에만 빌드를 돌리므로 지금은 항상 "변경 없음 → 스킵"되고 `lint-staged`만 실행된다. `.husky/pre-push`는 `master|dev|prod` 브랜치 직접 작업을 막는다.
 - `docs/ROADMAP.md`, `docs/TECH-STACK-PRIORITY.md`, `.claude/GOSPELFIX.md`는 `frontend/`+`admin/` 모노레포를 전제로 쓰여 있다. `.claude/agents/*.md`에도 옛 경로가 하드코딩되어 있다.
