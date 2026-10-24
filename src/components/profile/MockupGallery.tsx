@@ -9,6 +9,29 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { useSheetMotion } from '@/hooks/useSheetMotion'
 
+// 로드 전에는 스켈레톤을 보여주고, 로드/에러 시 이미지로 교체한다.
+// 캐시된 이미지는 React가 onLoad를 붙이기 전에 로드가 끝날 수 있어 ref에서 complete를 확인한다.
+function MockupImage({ src, alt }: { src: string; alt: string }) {
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <div className={`mockup-gallery-slide${loaded ? '' : ' is-loading'}`}>
+      {!loaded && <div className="mockup-gallery-skeleton" aria-hidden />}
+      <img
+        ref={(el) => {
+          if (el?.complete) setLoaded(true)
+        }}
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(true)}
+      />
+    </div>
+  )
+}
+
 // QrShareSheet와 같은 이유로 .gf-profile-page에 포털한다(CSS 변수가 그 노드에만 스코프됨).
 // 시트/딤 스타일은 .qr-sheet-* 클래스를 재사용하고 갤러리 본문만 .mockup-gallery-*로 추가한다.
 export default function MockupGallery({
@@ -49,7 +72,7 @@ export default function MockupGallery({
             <Swiper modules={[Pagination]} pagination={{ clickable: true }} spaceBetween={12} className="mockup-gallery-swiper">
               {images.map((src, i) => (
                 <SwiperSlide key={src}>
-                  <img src={src} alt={`${title} 목업 ${i + 1}`} loading="lazy" decoding="async" />
+                  <MockupImage src={src} alt={`${title} 목업 ${i + 1}`} />
                 </SwiperSlide>
               ))}
             </Swiper>

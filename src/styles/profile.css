@@ -875,6 +875,52 @@ body {
   background: var(--color-chip-bg);
 }
 
+.mockup-gallery-slide {
+  position: relative;
+}
+
+/* 로드 전 img 높이가 0이라 스켈레톤 자리를 비율로 확보한다 */
+.mockup-gallery-slide.is-loading {
+  aspect-ratio: 1 / 1;
+  max-height: 60vh;
+}
+
+.mockup-gallery-slide.is-loading img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0;
+}
+
+.mockup-gallery-skeleton {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    var(--color-chip-bg) 25%,
+    var(--color-surface) 50%,
+    var(--color-chip-bg) 75%
+  );
+  background-size: 200% 100%;
+  animation: mockup-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes mockup-skeleton-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mockup-gallery-skeleton {
+    animation: none;
+  }
+}
+
 .mockup-gallery-swiper .swiper-pagination-bullet {
   background: var(--color-border-strong);
   opacity: 1;
