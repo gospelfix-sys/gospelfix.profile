@@ -64,7 +64,7 @@ export default function MockupGallery({
           <DialogPrimitive.Popup className="qr-sheet mockup-gallery" render={popupRender}>
             <div className="qr-sheet-handle" />
             <div className="qr-sheet-header">
-              <DialogPrimitive.Title className="qr-sheet-title">{title} 목업</DialogPrimitive.Title>
+              <DialogPrimitive.Title className="qr-sheet-title">{title} PUP-UP 스토어</DialogPrimitive.Title>
               <DialogPrimitive.Close className="qr-sheet-close" aria-label="닫기">
                 <X aria-hidden focusable={false} />
               </DialogPrimitive.Close>
@@ -72,7 +72,7 @@ export default function MockupGallery({
             <Swiper modules={[Pagination]} pagination={{ clickable: true }} spaceBetween={12} className="mockup-gallery-swiper">
               {images.map((src, i) => (
                 <SwiperSlide key={src}>
-                  <MockupImage src={src} alt={`${title} 목업 ${i + 1}`} />
+                  <MockupImage src={src} alt={`${title} PUP-UP 스토어 ${i + 1}`} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -84,7 +84,7 @@ export default function MockupGallery({
                   rel="noopener noreferrer"
                   className="qr-sheet-save-btn mockup-gallery-buy-btn"
                 >
-                  목업 FREE 구매하러 가기
+                  PUP-UP 스토어 FREE 구매하러 가기
                 </a>
               </div>
             )}

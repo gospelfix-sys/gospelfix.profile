@@ -95,7 +95,7 @@ const MINISTRY_CARDS = [
     date: '2026.10.24 (토)',
     info: '전도 대상자를 등록하고 함께 기도해요',
     link: 'https://gbc-sys.github.io/holy.win.2026/',
-    tags: ['홀리윈', '목업'],
+    tags: ['홀리윈', 'PUP-UP 스토어'],
     image_type: 'image',
     image_url: '/images/portfolio/holywin.avif',
     unavailable: false,

@@ -40,7 +40,7 @@ export interface CardData {
   // 있으면 두 번째 버튼(tags[1])이 링크 이동 대신 이 이미지들을 팝업 갤러리로 연다.
   // TODO(Phase 2): ministry_cards에 mockup_images TEXT[] 컬럼이 없다 — Supabase 전환 시 추가할 것.
   mockupImages?: string[]
-  // 있으면 목업 갤러리 하단에 "목업 FREE 구매하러 가기" 버튼이 표시된다.
+  // 있으면 갤러리 하단에 "PUP-UP 스토어 FREE 구매하러 가기" 버튼이 표시된다.
   mockupPurchaseUrl?: string
   imageType: 'image' | 'icon'
   imageUrl: string | null
