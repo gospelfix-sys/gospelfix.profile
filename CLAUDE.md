@@ -61,7 +61,7 @@ npx tsc --noEmit  # 타입체크 (strict)
 
 저장소가 모노레포에서 단일 앱으로 바뀐 뒤 아직 정리되지 않은 곳들이다. 이 내용을 사실로 믿고 따르지 말 것.
 
-- `.claude/rules/code-conventions.md`는 `cms.api` BFF(`cmsApiFetch`, `src/app/api/*/route.ts`) 구조의 다른 프로젝트 기준으로 쓰여 있다. 특히 "Supabase를 직접 호출하지 않는다"는 이 저장소와 반대이므로 따르지 말고, 포맷·네이밍 같은 범용 항목만 참고한다. `.claude/rules/` 문서가 가리키는 `.claude/agents/component-writer.md`, `.claude/memory/feedback_shared_component_single_source_of_truth.md`, `.prettierrc`도 존재하지 않는다. `.claude/`는 gitignore 대상이라 이 링크는 다른 클론에서 깨진다.
+- `.claude/rules/code-conventions.md`는 `cms.api` BFF(`cmsApiFetch`, `src/app/api/*/route.ts`) 구조의 다른 프로젝트 기준으로 쓰여 있다. 특히 "Supabase를 직접 호출하지 않는다"는 이 저장소와 반대이므로 따르지 말고, 포맷·네이밍 같은 범용 항목만 참고한다. `.claude/rules/` 문서가 가리키는 `.claude/agents/component-writer.md`, `.claude/memory/feedback_shared_component_single_source_of_truth.md`, `.prettierrc`도 존재하지 않는다. `.gitignore`에 `.claude/`가 있지만 `settings.json`·`agents/`·`skills/`·`memory/` 등은 이미 추적 중이다(새 파일은 `git add -f` 필요). 반면 `rules/`와 `plans/`는 추적되지 않아 이 링크는 다른 클론에서 깨진다.
 
 - `.husky/pre-commit`은 `frontend/`·`admin/` 변경 시에만 빌드를 돌리므로 지금은 항상 "변경 없음 → 스킵"되고 `lint-staged`만 실행된다. `.husky/pre-push`는 `master|dev|prod` 브랜치 직접 작업을 막는다.
 - `docs/ROADMAP.md`, `docs/TECH-STACK-PRIORITY.md`, `.claude/GOSPELFIX.md`는 `frontend/`+`admin/` 모노레포를 전제로 쓰여 있다. `.claude/agents/*.md`에도 옛 경로가 하드코딩되어 있다.
