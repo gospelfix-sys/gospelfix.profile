@@ -96,6 +96,7 @@ export const MINISTRY_CARDS: CardData[] = [
       '/images/mockup.holy.win.2026/holywin_popup_street_flyers.avif',
       '/images/mockup.holy.win.2026/holywin_popup_flyer_handoff.avif',
       '/images/mockup.holy.win.2026/holywin_popup_ticket_handoff.avif',
+      '/images/mockup.holy.win.2026/holywin_popup_banner_diagonal.avif',
       '/images/mockup.holy.win.2026/holywin_popup_busking_closeup.avif',
       '/images/mockup.holy.win.2026/holywin_popup_busking_street.avif',
       '/images/mockup.holy.win.2026/holywin_popup_storefront.avif',
