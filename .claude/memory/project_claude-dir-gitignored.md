@@ -1,7 +1,7 @@
 ---
 name: project-claude-dir-gitignored
-description: [정정됨 2026-10-08] .claude/는 gitignore 아닌 untracked일 뿐 + 이 저장소는 "다른 프로젝트"가 아니라 구 정적 GospelFix 사이트의 Next.js 재작성본
-metadata: 
+description: "[2026-11-03 재정정: .claude/ 대부분 이미 git 추적 중, 단 .gitignore에 .claude/가 있어 새 파일은 add -f 필요] [정정됨 2026-10-08] .claude/는 gitignore 아닌 untracked일 뿐 + 이 저장소는 '다른 프로젝트'가 아니라 구 정적 GospelFix 사이트의 Next.js 재작성본"
+metadata:
   node_type: memory
   type: project
   originSessionId: 32c008f9-b0e8-4033-8cbb-315f22bd4886
@@ -25,3 +25,5 @@ metadata:
 커밋 `f890e54`(2026-10-04)에서 같은 패턴으로 `.serena/`(Serena MCP 서버의 로컬 프로젝트 설정 디렉터리, `project.yml`/`project.local.yml` 등)도 `.gitignore`에 추가됨. 사용자가 "다른 것 변경 파일 다 커밋/푸쉬해줘"라고 했을 때, `.claude/` 선례를 근거로 바로 커밋하지 않고 AskUserQuestion으로 먼저 확인한 뒤 "gitignore에 추가" 선택을 받고 진행함.
 
 **일반화된 적용 규칙:** 사용자가 "다 커밋해줘"라고 해도, git status에 뜨는 미추적 디렉터리가 `.claude/`·`.serena/`류의 로컬 MCP/에디터 툴 설정으로 보이면 자동으로 `git add -A`에 포함시키지 말 것. 먼저 디렉터리 내용을 확인하고(설정 파일인지, 캐시인지), 사용자에게 "이번처럼 gitignore 처리할지/그대로 커밋할지/보류할지" 확인한 뒤 진행한다. 새로운 로컬 툴 디렉터리(`.cursor/`, `.vscode/` 등)를 발견해도 동일한 절차를 따른다.
+
+**2026-11-03 재정정(가장 최신, 위 서술보다 우선):** 현재 `.claude/`의 `settings.json`, `agents/`, `commands/`, `skills/`, `memory/`, `GOSPELFIX.md` 등은 **이미 git에 추적 중**이다(`git ls-files .claude`로 확인). 그런데 `.gitignore`에 `.claude/`가 있어서(커밋 `d502ce2`에서 추가) 새 파일은 `git add`가 거부된다 — 이미 추적 중인 파일을 커밋할 때도 `git add -f <파일>`이 필요했다(이 날 `.claude/settings.json` 커밋 2건). 따라서 위의 "untracked라 삭제하면 복구 불가"는 추적 중인 파일에는 맞지 않는다: `git checkout`/`git show`로 복구 가능하다(단 미커밋 변경분은 불가). 새로 만든 `.claude/` 파일만 untracked다. ⚠️ 후속 조치 필요: CLAUDE.md의 "`.claude/`는 gitignore 대상" 문구와 `.claude/rules/code-conventions.md` §11도 이 실제 상태와 어긋난다.
