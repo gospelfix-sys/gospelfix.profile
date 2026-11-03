@@ -81,7 +81,7 @@ export const MINISTRY_CARDS: CardData[] = [
     date: '2026.10.24 (토)',
     info: '전도 대상자를 등록하고 함께 기도해요',
     link: 'https://gbc-sys.github.io/holy.win.2026/',
-    tags: ['홀리윈', 'PUP-UP 스토어'],
+    tags: ['홀리윈', 'PUP-UP 스토어', '홀리윈 페스티벌'],
     mockupImages: [
       '/images/mockup.holy.win.2026/holywin_popup_booth.avif',
       '/images/mockup.holy.win.2026/holywin_popup_photozone.avif',
@@ -104,6 +104,7 @@ export const MINISTRY_CARDS: CardData[] = [
     ],
     // TODO: 실제 구매 페이지 URL로 교체 (현재 자리표시자)
     mockupPurchaseUrl: '#',
+    extraLink: 'https://mybox.naver.com/share/list?shareKey=uTmBQanqzFKQTPz9S0g-yTHIkZU-PVPOdkNLGtOBKr0D',
     imageType: 'image',
     imageUrl: '/images/portfolio/holywin.avif',
     unavailable: false,

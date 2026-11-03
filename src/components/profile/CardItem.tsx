@@ -35,11 +35,27 @@ export default function CardItem({ card }: { card: CardData }) {
         {card.date && <p className="ministry-card-date">{card.date}</p>}
         <p className="ministry-card-info">{card.info}</p>
         <div className="ministry-card-actions">
-          {card.tags.slice(0, 2).map((tag, i) => {
+          {card.tags.slice(0, 3).map((tag, i) => {
             const className = `ministry-card-btn ${i === 0 ? 'ministry-card-btn--primary' : 'ministry-card-btn--outline'}`
-            return i === 1 && card.mockupImages ? (
-              <MockupGallery key={tag} title={card.title} images={card.mockupImages} purchaseUrl={card.mockupPurchaseUrl} label={tag} className={className} />
-            ) : (
+            if (i === 1 && card.mockupImages) {
+              return <MockupGallery key={tag} title={card.title} images={card.mockupImages} purchaseUrl={card.mockupPurchaseUrl} label={tag} className={className} />
+            }
+            if (i === 2 && card.extraLink) {
+              const extraExternal = card.extraLink.startsWith('http')
+              return (
+                <a
+                  key={tag}
+                  href={card.extraLink}
+                  target={extraExternal ? '_blank' : undefined}
+                  rel={extraExternal ? 'noopener noreferrer' : undefined}
+                  aria-label={`${card.title} ${tag}`}
+                  className={className}
+                >
+                  {tag}
+                </a>
+              )
+            }
+            return (
               <a key={tag} {...linkProps} aria-label={`${card.title} ${tag}`} className={className}>
                 {tag}
               </a>

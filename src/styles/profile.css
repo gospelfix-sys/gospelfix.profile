@@ -804,16 +804,18 @@ body {
   margin-bottom: 16px;
 }
 
-/* 하단 버튼 2개 — 카드 높이가 달라도 항상 바닥에 붙도록 margin-top:auto */
+/* 하단 버튼 2~3개 — 카드 높이가 달라도 항상 바닥에 붙도록 margin-top:auto.
+   버튼이 한 줄에 안 들어가면 잘리지 않고 다음 줄로 내려간다(flex-wrap). */
 .ministry-card-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: auto;
 }
 
 .ministry-card-btn {
   display: inline-flex;
-  flex: 1;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
   height: 38px;

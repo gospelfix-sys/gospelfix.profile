@@ -42,6 +42,9 @@ export interface CardData {
   mockupImages?: string[]
   // 있으면 갤러리 하단에 "PUP-UP 스토어 FREE 구매하러 가기" 버튼이 표시된다.
   mockupPurchaseUrl?: string
+  // 있으면 세 번째 버튼(tags[2])이 card.link 대신 이 주소로 이동한다.
+  // TODO(Phase 2): ministry_cards에 extra_link 컬럼이 없다 — Supabase 전환 시 추가할 것.
+  extraLink?: string
   imageType: 'image' | 'icon'
   imageUrl: string | null
   icon?: CardIcon | null
