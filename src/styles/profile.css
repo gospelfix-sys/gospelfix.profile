@@ -867,13 +867,6 @@ body {
   padding-bottom: var(--space-8, 32px);
 }
 
-.mockup-gallery-buy-btn {
-  display: block;
-  margin-top: var(--space-4);
-  text-align: center;
-  text-decoration: none;
-}
-
 .mockup-gallery-swiper {
   padding-bottom: 28px;
 }

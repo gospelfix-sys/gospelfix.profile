@@ -38,7 +38,7 @@ export default function CardItem({ card }: { card: CardData }) {
           {card.tags.slice(0, 3).map((tag, i) => {
             const className = `ministry-card-btn ${i === 0 ? 'ministry-card-btn--primary' : 'ministry-card-btn--outline'}`
             if (i === 1 && card.mockupImages) {
-              return <MockupGallery key={tag} title={card.title} images={card.mockupImages} purchaseUrl={card.mockupPurchaseUrl} label={tag} className={className} />
+              return <MockupGallery key={tag} title={card.title} images={card.mockupImages} label={tag} className={className} />
             }
             return (
               <a key={tag} {...linkProps} aria-label={`${card.title} ${tag}`} className={className}>

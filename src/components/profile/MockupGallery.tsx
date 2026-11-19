@@ -45,13 +45,11 @@ export default function MockupGallery({
   images,
   label,
   className,
-  purchaseUrl,
 }: {
   title: string
   images: string[]
   label: string
   className: string
-  purchaseUrl?: string
 }) {
   const [open, setOpen] = useState(false)
   const { actionsRef, onOpenChange, backdropRender, popupRender } = useSheetMotion(open, setOpen)
@@ -94,18 +92,6 @@ export default function MockupGallery({
                 </SwiperSlide>
               ))}
             </Swiper>
-            {purchaseUrl && (
-              <div className="qr-sheet-footer">
-                <a
-                  href={purchaseUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="qr-sheet-save-btn mockup-gallery-buy-btn"
-                >
-                  PUP-UP 스토어 FREE 구매하러 가기
-                </a>
-              </div>
-            )}
           </DialogPrimitive.Popup>
         </div>
       </DialogPrimitive.Portal>

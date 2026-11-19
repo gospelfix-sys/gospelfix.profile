@@ -1,8 +1,6 @@
 // Phase 1 임시 데이터 로더 — 실제 값은 src/data/*.json에 있고, 이 파일은 타입만 입힌다.
 // Phase 2에서 Supabase 조회로 교체되면 이 파일과 src/data/는 삭제된다.
 // 배열 순서 = 화면 표시 순서(정렬 로직 없음). 순서를 바꾸려면 JSON 배열 순서를 직접 바꾼다.
-// TODO: ministry-cards.json 홀리윈 카드의 mockupPurchaseUrl '#'은 자리표시자 — 실제 구매 페이지 URL로 교체
-// (JSON은 주석을 쓸 수 없어 여기에 남긴다).
 import type { BusinessHourEntry, CardData, SiteProfile } from '@/types/profile.types'
 import siteProfile from '@/data/site-profile.json'
 import businessHours from '@/data/business-hours.json'
