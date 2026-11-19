@@ -1,155 +1,16 @@
-// Phase 1 임시 픽스처 — 현재 정적 사이트의 hero.js HERO_DATA / hours.js HOURS_DATA /
-// assets/data/*.json을 그대로 옮긴 하드코딩 상수. Phase 2에서 Supabase 조회로 교체되면
-// 이 파일은 삭제된다. 배열 순서 = 화면 표시 순서(정렬 로직 없음, 원본과 동일).
+// Phase 1 임시 데이터 로더 — 실제 값은 src/data/*.json에 있고, 이 파일은 타입만 입힌다.
+// Phase 2에서 Supabase 조회로 교체되면 이 파일과 src/data/는 삭제된다.
+// 배열 순서 = 화면 표시 순서(정렬 로직 없음). 순서를 바꾸려면 JSON 배열 순서를 직접 바꾼다.
+// TODO: ministry-cards.json 홀리윈 카드의 mockupPurchaseUrl '#'은 자리표시자 — 실제 구매 페이지 URL로 교체
+// (JSON은 주석을 쓸 수 없어 여기에 남긴다).
 import type { BusinessHourEntry, CardData, SiteProfile } from '@/types/profile.types'
+import siteProfile from '@/data/site-profile.json'
+import businessHours from '@/data/business-hours.json'
+import portfolioCards from '@/data/portfolio-cards.json'
+import ministryCards from '@/data/ministry-cards.json'
 
-export const SITE_PROFILE: SiteProfile = {
-  name: '소윤호',
-  imageUrl: '/images/propil_v1.avif',
-  subtitle: 'GospelFix 대표 · AI Agent 자동화 솔루션',
-  company: 'GospelFix',
-  companyEn: 'AI AGENT AUTOMATION',
-  roleLines: ['가스펄픽스(GospelFix) 대표', '가게의 브랜딩부터 문의 응대까지'],
-  tags: ['🧑‍💻 CI로고 · 홈페이지 · 쇼핑몰 · AI 챗봇', '🚀 SNS 광고소재 제작 · 문의 알림 · 접속 통계'],
-  email: 'thdbsgh3443@kakao.com',
-  phone: '010-3388-2024',
-  phoneHref: 'tel:010-3388-2024',
-  homepageUrl: 'https://gospelfix-ashy.vercel.app/layer',
-}
-
-export const BUSINESS_HOURS: BusinessHourEntry[] = [
-  { day: 1, label: '월요일', open: '09:00', close: '22:30' },
-  { day: 2, label: '화요일', open: '09:00', close: '22:30' },
-  { day: 3, label: '수요일', open: '09:00', close: '22:30' },
-  { day: 4, label: '목요일', open: '09:00', close: '22:30' },
-  { day: 5, label: '금요일', open: '09:00', close: '22:30' },
-  { day: 6, label: '토요일', open: '09:00', close: '14:00' },
-  { day: 0, label: '일요일', open: null, close: null },
-]
-
-export const PORTFOLIO_CARDS: CardData[] = [
-  {
-    id: 3,
-    title: '고품격대패',
-    titleSuffix: '',
-    subtitle: '대패의 격이 다르다',
-    date: '',
-    info: '고품격대패 공식 웹사이트',
-    link: 'https://xn--i89a2dz9q2p1bhpb.com/',
-    tags: ['프랜차이즈'],
-    imageType: 'image',
-    imageUrl: '/images/portfolio/gopoomgyeok.avif',
-    unavailable: false,
-    unavailableMessage: null,
-  },
-  {
-    id: 2,
-    title: '예작음악신문사',
-    titleSuffix: '',
-    subtitle: '무대가 가장 좋은 스승이다.',
-    date: '',
-    info: '예작음악신문사 공식 웹사이트',
-    link: 'http://yezakeumak.com',
-    tags: ['음악'],
-    imageType: 'image',
-    imageUrl: '/images/portfolio/yezakeumak.avif',
-    unavailable: true,
-    unavailableMessage: '계약이 만료되어 더 이상 운영하지 않습니다.',
-  },
-  {
-    id: 1,
-    title: 'Dear Tint Santa',
-    titleSuffix: '',
-    subtitle: '크리스마스 감성을 담은 브랜드',
-    date: '',
-    info: 'Dear Tint Santa 공식 스토어',
-    link: 'https://deartintsanta.com',
-    tags: ['브랜드'],
-    imageType: 'image',
-    imageUrl: '/images/portfolio/deartintsanta.avif',
-    unavailable: false,
-    unavailableMessage: null,
-  },
-]
-
-export const MINISTRY_CARDS: CardData[] = [
-  {
-    id: 4,
-    title: '홀리윈 2026',
-    titleSuffix: '',
-    subtitle: '전도 대상자 기도',
-    date: '2026.10.24 (토)',
-    info: '전도 대상자를 등록하고 함께 기도해요',
-    link: 'https://gbc-sys.github.io/holy.win.2026/',
-    tags: ['홀리윈', 'PUP-UP 스토어'],
-    mockupImages: [
-      '/images/mockup.holy.win.2026/holywin_popup_booth.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_photozone.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_invitation_cards.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_patch_tote.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_flowers.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_photozone_mirror.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_sticker_basket.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_flyer_hands.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_bag_poster.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_crowd_drinks.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_street_flyers.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_flyer_handoff.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_ticket_handoff.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_banner_diagonal.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_busking_closeup.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_busking_street.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_storefront.avif',
-      '/images/mockup.holy.win.2026/holywin_popup_ticket_desk.avif',
-      '/images/mockup.holy.win.2026/holywin_ticket_snap.avif',
-    ],
-    // TODO: 실제 구매 페이지 URL로 교체 (현재 자리표시자)
-    mockupPurchaseUrl: '#',
-    imageType: 'image',
-    imageUrl: '/images/portfolio/holywin.avif',
-    unavailable: false,
-    unavailableMessage: null,
-  },
-  {
-    id: 3,
-    title: '몽골 단기선교',
-    titleSuffix: '',
-    subtitle: '몽골 사역 프로젝트',
-    date: '2026.06.28 - 07.04',
-    info: '몽골 단기선교팀 소식과 기도 요청을 확인하세요',
-    link: 'https://mongolia-employment.vercel.app/',
-    tags: ['몽골'],
-    imageType: 'image',
-    imageUrl: '/images/portfolio/mongolia.avif',
-    unavailable: false,
-    unavailableMessage: null,
-  },
-  {
-    id: 2,
-    title: 'LOVE in Action',
-    titleSuffix: '',
-    subtitle: '강청 수련회',
-    date: '2026.01.12 - 01.31',
-    info: '강남중앙침례교회 청년부 온라인 서비스',
-    link: 'https://gbc-sys.github.io/gangcheong/exaction',
-    tags: ['수련회'],
-    imageType: 'image',
-    imageUrl: '/images/cards/thumbnail-1.png',
-    unavailable: false,
-    unavailableMessage: null,
-  },
-  {
-    id: 1,
-    title: '사랑의 언어 도장판',
-    titleSuffix: '',
-    subtitle: 'LOVE in Action',
-    date: '2026.02.06 - 02.08',
-    info: '5가지 사랑의 언어로 미션을 완료하세요',
-    link: 'https://gbc-sys.github.io/gangcheong/mission',
-    tags: ['미션'],
-    imageType: 'image',
-    imageUrl: '/images/cards/thumbnail-2.png',
-    unavailable: false,
-    unavailableMessage: null,
-  },
-]
+// JSON import는 리터럴 유니온('image' | 'icon')을 string으로 넓혀서 타입 단언이 필요하다.
+export const SITE_PROFILE = siteProfile as SiteProfile
+export const BUSINESS_HOURS = businessHours as BusinessHourEntry[]
+export const PORTFOLIO_CARDS = portfolioCards as CardData[]
+export const MINISTRY_CARDS = ministryCards as CardData[]

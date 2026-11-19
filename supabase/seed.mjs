@@ -32,7 +32,7 @@ const SITE_PROFILE = {
   email: 'thdbsgh3443@kakao.com',
   phone: '010-3388-2024',
   phone_href: 'tel:010-3388-2024',
-  homepage_url: 'https://gospelfix-ashy.vercel.app/layer',
+  homepage_url: 'https://xn--o39aj34ba393o94b.com/layer',
 };
 
 const BUSINESS_HOURS = [

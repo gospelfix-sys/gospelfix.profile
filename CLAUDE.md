@@ -29,7 +29,7 @@ npx tsc --noEmit  # 타입체크 (strict)
 
 ### 데이터 흐름 (Phase 1 → Phase 2 전환 중)
 
-공개 페이지는 현재 `src/lib/profile-data.ts`의 하드코딩 픽스처(`SITE_PROFILE`, `BUSINESS_HOURS`, `PORTFOLIO_CARDS`, `MINISTRY_CARDS`)를 쓴다. Phase 2에서 Supabase 서버사이드 조회로 교체되고 이 파일은 삭제될 예정이다. 대응하는 테이블은 `supabase/schema.sql`의 `site_profile`, `business_hours`, `portfolio_cards`, `ministry_cards` (공개 읽기 + `is_admin()` 쓰기 RLS). 타입은 `src/types/profile.types.ts`.
+공개 페이지는 현재 `src/data/*.json`(`site-profile`, `business-hours`, `portfolio-cards`, `ministry-cards`)의 값을 쓴다. `src/lib/profile-data.ts`는 이 JSON에 타입만 입혀 `SITE_PROFILE`, `BUSINESS_HOURS`, `PORTFOLIO_CARDS`, `MINISTRY_CARDS`로 내보내는 로더다. 값은 JSON에서 고치고, 로더 import는 그대로 둔다. Phase 2에서 Supabase 서버사이드 조회로 교체되고 이 로더와 `src/data/`는 삭제될 예정이다. 대응하는 테이블은 `supabase/schema.sql`의 `site_profile`, `business_hours`, `portfolio_cards`, `ministry_cards` (공개 읽기 + `is_admin()` 쓰기 RLS). 타입은 `src/types/profile.types.ts`.
 
 - 카드 표시 순서 = 배열 순서. 정렬 로직이 없으니 순서 변경은 배열 순서를 직접 바꾼다.
 - `src/lib/supabase/middleware.ts`는 모든 요청에서 세션 쿠키만 갱신하며 리다이렉트/보안 경계가 아니다. 환경변수가 없으면 조용히 건너뛴다. `env.ts`(`getSupabaseEnv`)도 `NEXT_PUBLIC_SUPABASE_URL/ANON_KEY`가 비면 더미 값으로 대체한다 (대시보드에 실제 기능이 붙으면 production에서 throw하도록 바꿀 TODO가 코드에 있다).

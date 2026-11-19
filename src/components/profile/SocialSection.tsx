@@ -10,7 +10,7 @@ export default function SocialSection({ profile }: { profile: SiteProfile }) {
         <a href={profile.homepageUrl} className="list-item" target="_blank" rel="noopener noreferrer">
           <span className="item-label">GospelFix 홈페이지</span>
           <span className="item-value-group">
-            <span className="item-value">gospelfix-ashy.vercel.app/layer</span>
+            <span className="item-value">가스펄픽스.com/layer</span>
             <span className="item-arrow">
               <ChevronRight />
             </span>
