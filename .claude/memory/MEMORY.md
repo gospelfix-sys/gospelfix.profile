@@ -8,11 +8,11 @@
 - [아이콘/파비콘 생성은 표준 풀세트+HTML 연결 기본값](feedback_icon-generation-full-set.md) — appIcon.png 작업에서 추천 옵션 그대로 승인됨
 - [카드 순서=JSON 배열 순서, 정렬 기준 추측 금지](feedback_card-order-is-array-order.md) — "우선순위" 요청 시 결과 순서를 직접 확인할 것
 - [링크만 주어지면 WebFetch로 내용 확인 후 채울 것](feedback_verify-link-content-before-guessing.md) — URL 이름 추측(몽골=취업지원) 오류 + WebFetch로도 못 채우는 필드(날짜)는 사용자에게 물을 것
-- [홀리윈 2026 사역 카드 출처](project_holywin-2026-card.md) — 강청 청년부 전도 대상자 기도 페이지, date 필드는 사용자 제공값(페이지엔 없음), 이미지 경로는 .avif로 정정됨
+- [홀리윈 2026 사역 카드 출처](project_holywin-2026-card.md) — 강청 청년부 전도 대상자 기도 페이지, date 필드는 사용자 제공값(페이지엔 없음), 이미지 경로는 .avif로 정정됨 · 2026-11-19: 페스티벌/구매 버튼 삭제, 데이터는 src/data/ministry-cards.json
 - [고품격대패 포트폴리오 카드 출처](project_gopoomgyeok-card.md) — 퓨니코드 도메인 WebFetch로 확인, 포트폴리오/사역 카드 이미지 전체 avif 전환 이력도 함께 기록
 - [디자인 토큰 리팩터링 시 시각적 결과 보존이 기본값](feedback_preserve-visual-on-token-refactors.md) — shadcn 아이덴티티 도입 시 radius/그림자 모두 "현재 유지" 선택함
 - [macOS 대소문자 무시 FS + git core.ignorecase 함정](project_case-insensitive-fs-git-gotcha.md) — mv/git mv 실패, rename 미인식, 한글 파일명 NFD 불일치 등 4가지 사고와 우회법
-- [QR·공유·OG URL은 SITE_URL 상수로 고정](project_share-url-hardcoded.md) — ⚠️ 2026-10-24: gospelfix-ashy는 MODA 사이트, 실제 프로필 배포 도메인 미확인, 미커밋 변경 주의
+- [QR·공유·OG URL은 SITE_URL 상수로 고정](project_share-url-hardcoded.md) — 2026-11-19 profile.가스펄픽스.com(punycode)로 확정, 화면 표시는 SITE_URL_LABEL(한글) 분리, ⚠️ 도메인 Vercel 연결 확인 미완
 - [Supabase 관련 파일은 supabase/ 폴더에](feedback_supabase-folder-convention.md) — schema.sql/seed.mjs, docs/에 섞지 말 것
 - [파일이 세션 중 예고 없이 사라지는 현상 반복됨](project_files-vanish-mid-session.md) — 실수/의도 둘 다 있었음, 추측 말고 매번 물어볼 것
 - [git-commit-pusher 에이전트가 이 환경에서 Bash 접근 불가](reference_git-commit-pusher-no-bash.md) — 위임하지 말고 코디네이터가 직접 git 명령 실행 (2026-10-23 재확인)
@@ -22,3 +22,4 @@
 - [motion 패키지 설치됨, 챗봇 UI 구현 때 tailwindcss-animate/tw-animate-css 대체 예정](project_motion-chatbot-plan.md) — swiper는 유지, docs/ROADMAP.md에도 기록
 - [메모리 운영: 글로벌이 유일한 자동 로드 소스, .claude/memory/는 git 공유용 수동 사본](project_memory-dual-storage.md) — 새 메모리 저장 시 양쪽 다 갱신할 것
 - [settings.json hooks 전체 삭제·.env Bash deny·shrimp_data 추적해제(2026-11-03)](project_claude-settings-hooks-removed.md) — "hooks" 모호어는 먼저 되물을 것, 복구는 git show fd6e3cf~1
+- [프로필 데이터 JSON 분리·/churchministry 분리(2026-11-19)](project_profile-data-json-split.md) — src/data/*.json+로더, 남은 하드코딩(인스타·캐치프레이즈·푸터)과 미해결 후속 목록

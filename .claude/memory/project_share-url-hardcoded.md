@@ -1,12 +1,14 @@
 ---
 name: project-share-url-hardcoded
-description: 공유/QR/OG메타데이터가 쓰는 SITE_URL은 window.location.href 대신 고정 상수 — 현재 gospelfix.com 도메인 미연결로 vercel.app 임시 지정 상태
+description: 공유/QR/OG메타데이터가 쓰는 SITE_URL은 window.location.href 대신 고정 상수 — 2026-11-19 profile.가스펄픽스.com(punycode)로 확정, 화면 표시는 SITE_URL_LABEL(한글)로 분리
 metadata:
   node_type: memory
   type: project
   originSessionId: c7003524-b320-40d3-9e17-70aac91f29b7
-  modified: 2026-10-16T04:10:17.089Z
+  modified: 2026-11-19T03:14:15.112Z
 ---
+
+**✅ 2026-11-19 해소 (커밋 7619348):** 사용자가 `SITE_URL`을 `https://profile.xn--o39aj34ba393o94b.com`(= `profile.가스펄픽스.com`)으로 지정했다. 아래 본문의 vercel.app 임시 주소·gospelfix-ashy/MODA 경고는 모두 과거 이력이다. 현재 구조: `site-config.ts`에 링크/QR/OG용 `SITE_URL`(punycode, 끝 슬래시 없음 — `${SITE_URL}/images/...`로 이어 붙이기 때문)과 화면 표시 전용 `SITE_URL_LABEL`(`https://profile.가스펄픽스.com`) 두 상수가 있고, 도메인을 바꿀 때는 둘을 함께 고친다. 사용자는 화면에 보이는 주소는 한글로, 실제 링크·QR 인코딩은 punycode로 두길 원했다(같은 방식으로 `homepageUrl`은 `https://xn--o39aj34ba393o94b.com/layer`, 소셜 영역 표시 텍스트는 `가스펄픽스.com/layer`). ⚠️ 이 도메인이 Vercel 프로젝트에 실제 연결·배포됐는지는 이 환경에서 확인하지 못했다 — 배포 후 QR/공유 링크 접속 확인 필요. 같은 날 `homepageUrl`도 `gospelfix-ashy.vercel.app/layer`에서 위 도메인으로 바뀌었으므로 아래 "서로 다른 개념" 경고는 도메인이 같아졌어도 여전히 별개 상수라는 뜻으로만 읽을 것.
 
 (2026-10-16 갱신: Next.js 마이그레이션으로 구 정적 사이트의 `assets/js/qr.js`/`app.js` 경로는 더 이상 존재하지 않음. 현재는 `frontend/src/lib/site-config.ts`의 `SITE_URL` 단일 상수로 통합됨.)
 
