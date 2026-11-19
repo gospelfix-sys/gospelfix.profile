@@ -40,21 +40,6 @@ export default function CardItem({ card }: { card: CardData }) {
             if (i === 1 && card.mockupImages) {
               return <MockupGallery key={tag} title={card.title} images={card.mockupImages} purchaseUrl={card.mockupPurchaseUrl} label={tag} className={className} />
             }
-            if (i === 2 && card.extraLink) {
-              const extraExternal = card.extraLink.startsWith('http')
-              return (
-                <a
-                  key={tag}
-                  href={card.extraLink}
-                  target={extraExternal ? '_blank' : undefined}
-                  rel={extraExternal ? 'noopener noreferrer' : undefined}
-                  aria-label={`${card.title} ${tag}`}
-                  className={className}
-                >
-                  {tag}
-                </a>
-              )
-            }
             return (
               <a key={tag} {...linkProps} aria-label={`${card.title} ${tag}`} className={className}>
                 {tag}
