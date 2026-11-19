@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import type { SiteProfile } from '@/types/profile.types'
 
@@ -24,6 +25,14 @@ export default function SocialSection({ profile }: { profile: SiteProfile }) {
             </span>
           </span>
         </a>
+        <Link href="/churchministry" className="list-item">
+          <span className="item-label">교회 사역 보기</span>
+          <span className="item-value-group">
+            <span className="item-arrow">
+              <ChevronRight />
+            </span>
+          </span>
+        </Link>
       </div>
     </div>
   )
