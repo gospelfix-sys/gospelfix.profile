@@ -42,7 +42,7 @@ npx tsc --noEmit  # 타입체크 (strict)
 
 ### 기타
 
-- 공유/QR/OG URL은 `src/lib/site-config.ts`의 `SITE_URL` 상수 한 곳에서 관리한다 (현재 vercel.app 임시 주소 — 커스텀 도메인 연결 시 변경).
+- 공유/QR/OG URL은 `src/lib/site-config.ts`의 `SITE_URL` 상수 한 곳에서 관리한다 (punycode 주소). 화면에 보여 주는 한글 표기는 같은 파일의 `SITE_URL_LABEL`이며, 도메인을 바꿀 때는 둘을 함께 고친다.
 - 이미지 에셋은 `public/images/`에 avif 위주. `@/*` → `./src/*` 경로 별칭.
 
 ## 개발 원칙 (`.claude/GOSPELFIX.md`)

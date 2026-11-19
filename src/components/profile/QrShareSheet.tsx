@@ -5,7 +5,7 @@ import { Dialog as DialogPrimitive } from '@base-ui/react/dialog'
 import { QrCode, X } from 'lucide-react'
 import QRCode from 'qrcode'
 import { toast } from 'sonner'
-import { SITE_URL } from '@/lib/site-config'
+import { SITE_URL, SITE_URL_LABEL } from '@/lib/site-config'
 import { useSheetMotion } from '@/hooks/useSheetMotion'
 
 // 기존 qr.js 포팅. shadcn의 사전 스타일링된 DialogContent(가운데 모달용 Tailwind 클래스가
@@ -80,7 +80,7 @@ export default function QrShareSheet() {
                 <canvas ref={attachCanvas} className="qr-sheet-canvas" width={200} height={200} />
               </div>
               <p className="qr-sheet-desc">카메라로 스캔하면 프로필로 연결됩니다</p>
-              <p className="qr-sheet-url">{SITE_URL}</p>
+              <p className="qr-sheet-url">{SITE_URL_LABEL}</p>
             </div>
             <div className="qr-sheet-footer">
               <button type="button" className="qr-sheet-save-btn" onClick={handleSaveImage}>
